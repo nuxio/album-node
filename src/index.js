@@ -1,9 +1,8 @@
 const Koa = require("koa");
-const Router = require("koa-router");
 const bodyParser = require("koa-bodyparser");
+const router = require("./router");
 
 const app = new Koa();
-const router = new Router();
 
 app.use(bodyParser());
 
@@ -25,11 +24,8 @@ app.use(async (ctx, next) => {
 });
 
 // response
-
-router.get("/", ctx => {
-  ctx.body = "Hello world!";
-});
-
 app.use(router.routes());
 
 app.listen(3000);
+
+exports.app = app;

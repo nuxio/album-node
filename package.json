@@ -4,18 +4,25 @@
   "description": "A Node.js service for album.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "NODE_ENV=development nodemon src/index.js",
+    "test": "NODE_ENV=test mocha",
+    "clearTestData": "NODE_ENV=test node scripts/clear-test-data.js"
   },
   "author": "Mafee",
   "license": "MIT",
   "repository": "https://github.com/nuxio/album-node",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
+    "mongoose": "^5.5.10",
     "nodemon": "^1.19.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0"
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
   }
 }
